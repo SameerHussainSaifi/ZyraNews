@@ -10,7 +10,7 @@ import Science from './Science';
 function NavLinks() {
   return (
     <>
-     <div className='flex space-x-10 justify-center  items-center    flex-wrap '>
+     <div className='flex space-x-10 justify-center px-5 py-2 items-center rounded-lg border-1 border-orange-500  flex-wrap text-purple-500'>
       
       
       <NavLink to='/' className={({isActive})=>isActive?'active-link':null}>Home</NavLink>
