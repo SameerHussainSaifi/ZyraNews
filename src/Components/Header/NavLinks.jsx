@@ -7,10 +7,12 @@ import Education from './Education';
 import Tech from './Tech';
 import Health from './Health';
 import Science from './Science';
+import Business from './Business';
+import Sports from './Sports';
 function NavLinks() {
   return (
     <>
-     <div className='flex space-x-10 justify-center px-5 py-2 items-center rounded-lg border-1 border-orange-500  flex-wrap text-purple-500'>
+     <div className='flex  justify-around py-2 items-center rounded-xl border-1 border-pink-500  flex-wrap text-purple-500 text-lg'>
       
       
       <NavLink to='/' className={({isActive})=>isActive?'active-link':null}>Home</NavLink>
@@ -19,6 +21,8 @@ function NavLinks() {
       <NavLink to='/tech' className={({isActive})=>isActive?'active-link':null}>Tech</NavLink>
       <NavLink to='/health' className={({isActive})=>isActive?'active-link':null}>Health</NavLink>
       <NavLink to='/science' className={({isActive})=>isActive?'active-link':null}>Science</NavLink>
+      <NavLink to='/business' className={({isActive})=>isActive?'active-link':null}>Business</NavLink>
+      <NavLink to='/sports' className={({isActive})=>isActive?'active-link':null}>Sports</NavLink>
     </div>
     </>
   )

@@ -1,12 +1,11 @@
 import React from 'react'
 
-function Home() {
+function Sports() {
   return (
     <div>
-      home
-      
+     sports
     </div>
   )
 }
 
-export default Home
+export default Sports

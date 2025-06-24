@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Politics() {
+function Politics({data}) {
   return (
     <div>
-      politics
+      politics {data}
     </div>
   )
 }

@@ -10,10 +10,10 @@ function Navbar() {
 
 <div className=' flex items-center'>
         <FaGlobeAsia className='text-blue-500' size={50} />
-        <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-700'>ZyraNews</h1>
+        <h1 className='text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-purple-700 text-lg ml-1'>ZyraNews</h1>
       </div>
 <div>
-  <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-700 font-semibold text-3xl ">Where Technology Meets Journalism</h1>
+  <h1 className="text-transparent bg-clip-text bg-gradient-to-r from-pink-700 to-purple-700 font-semibold text-3xl py-1">Where Technology Meets Journalism</h1>
 </div>
 
     <Searchbar/>
@@ -21,7 +21,7 @@ function Navbar() {
 
     <div className="flex flex-col w-11/12 mx-auto ">
    
-<div className='  mx-auto w-8/12  mt-7'>
+<div className='  mx-auto w-10/12  mt-7'>
    <NavLink/>
     </div>
    </div>

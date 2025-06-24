@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Science() {
+function Science({data}) {
   return (
     <>
-      Science
+      Science {data}
       
     </>
   )
