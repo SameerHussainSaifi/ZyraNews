@@ -17,14 +17,15 @@ import Searchbar from './Components/Header/Searchbar.jsx';
 
  
 function App() {
-  const [useData,setUseData]=useState('Zyra news');
- 
+  const [useData,setUseData]=useState('Zyra News');
+  const [useDate,setUseDate]=useState(null);
+
   const router=createBrowserRouter(
   [
     {
       path:'/',
       element:<>
-        <Navbar/>
+        <Navbar data={useData} setData={setUseData}/>
       <Home/>
       </>
     },
@@ -81,18 +82,49 @@ function App() {
       path:'*',
       element:<PageNotFound/>
     },
-    
+  
   ]
 );
- 
+//  {useData.map((article, index) => {
+//   const publishedDate = new Date(article.publishedAt);
+//   const formattedDate = publishedDate.toLocaleString('en-US', {
+//     weekday: 'long',   // e.g. Monday
+//     year: 'numeric',
+//     month: 'long',
+//     day: 'numeric',
+//     hour: 'numeric',
+//     minute: '2-digit',
+//     hour12: true,
+//   });
 return (
   <>
 <RouterProvider router={router}/>
-
+ <div className=" flex flex-wrap space-x-20    justify-around overflow-x-hidden">
+        {Array.isArray(useData) && useData.length > 0 ? (
+          useData.map((article, index) => (
+            
+            <div key={index} className="flex flex-col mx-auto mt-5 mb-30  w-110 h-80 text-justify ">
+              <div className='border-2 rounded-xl mb-2'>
+              <img src={article.urlToImage} alt="image loading..." className='rounded-xl'/>
+              <h2 className="font-semibold px-3">{article.title}</h2>
+             </div>
+              
+              
+              <p>{article.description}</p>
+              <a href={article.url} className="text-blue-600 underline" target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>
+            </div>
+            
+          ))
+        ) : (
+          <p className="text-gray-500">Search for news using the bar above.</p>
+        )
+        
+        }
+      </div>
 </>
 );
-
 }
-
 export default App;
 
