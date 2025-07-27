@@ -1,9 +1,9 @@
 import React from 'react'
 import {useState} from 'react';
-function Searchbar({data,setData}) {
+function Searchbar({Data,setData}) {
   const [searchText,setSearchText]=useState('');
   const [Api,setApi]=useState(null);
-const apiKey=import.meta.env.VITE_NEWS_API;
+const apiKey='7704337dbb875c9387e89015f3ec8b0b';
 
  const today = new Date();
 const yesterday = new Date(today);
@@ -26,15 +26,17 @@ setSearchText(e.target.value);
  const handleClick=async()=>{
 
 if(Api=='true'){
-  var resp=await fetch(`https://newsapi.org/v2/everything?q=${searchText}&from=${from}&to=${to}&sortBy=popularity&pageSize=30&language=en&apiKey=${apiKey}`);
+  var resp=await fetch(`https://gnews.io/api/v4/search?q=${searchText}&lang=en&token=${apiKey}
+`);
  }
    if(Api=='false') {
-     var resp=await fetch(`https://newsapi.org/v2/top-headlines?sources=${searchText}&apiKey=${apiKey}`);
+     var resp=await fetch(`https://gnews.io/api/v4/search?q=${searchText}&lang=en&token=${apiKey}
+`);
      }
-   data = await resp.json();
-  console.log(data);
-    if(Array.isArray(data.articles)){
-      setData(data.articles);
+   Data = await resp.json();
+  console.log(Data);
+    if(Array.isArray(Data.articles)){
+      setData(Data.articles);
     }else{
       setData([]);
     }
@@ -43,7 +45,7 @@ if(Api=='true'){
   return (
     <>
   
-    <div className="flex space-x-1">
+    <div className="flex  w-10  sm:w-75 sm:justify-around sm:space-x-1 ">
          <div className='flex items-center space-x-1 border-1  border-pink-500 text-purple-500 rounded-lg px-1 py-1 '>
       <input type="text" placeholder="Search Country "  className=' rounded-lg focus:outline-none focus:border-1 border-pink-500 w-34 pl-1' onChange={callHandleInput} value={searchText}/>
       <select className="rounded-md border-1 border-pink-500  focus:outline-none " onChange={handleSelect}>
@@ -63,39 +65,4 @@ if(Api=='true'){
     </>
   )
 }
-
-// export default Searchbar
-// const handleClick = async () => {
-//   const today = new Date();
-//   const yesterday = new Date(today);
-//   yesterday.setDate(today.getDate() - 1);
-
-//   const formatDate = (d) => d.toISOString().split('T')[0];
-//   const from = formatDate(yesterday);
-//   const to = formatDate(today);
-
-//   let url = "";
-
-//   if (Api === "true") {
-//     url = `/api/news?type=everything&query=${searchText}&from=${from}&to=${to}`;
-//   } else if (Api === "false") {
-//     url = `/api/news?type=top-headlines&query=${searchText}`;
-//   }
-
-//   try {
-//     const resp = await fetch(url);
-//     const result = await resp.json();
-
-//     console.log(result);
-
-//     if (Array.isArray(result.articles)) {
-//       setData(result.articles);
-//     } else {
-//       setData([]);
-//     }
-//   } catch (err) {
-//     console.error("Error fetching news:", err);
-//     setData([]);
-//   }
-// };
-
+export default Searchbar;
