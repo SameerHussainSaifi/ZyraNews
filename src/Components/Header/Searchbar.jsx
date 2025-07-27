@@ -3,7 +3,7 @@ import {useState} from 'react';
 function Searchbar({data,setData}) {
   const [searchText,setSearchText]=useState('');
   const [Api,setApi]=useState(null);
-const apiKey='d354ff507dc64a6a9fae9d39d857eca5';
+const apiKey=import.meta.env.VITE_NEWS_API;
 
  const today = new Date();
 const yesterday = new Date(today);
@@ -64,4 +64,38 @@ if(Api=='true'){
   )
 }
 
-export default Searchbar
+// export default Searchbar
+// const handleClick = async () => {
+//   const today = new Date();
+//   const yesterday = new Date(today);
+//   yesterday.setDate(today.getDate() - 1);
+
+//   const formatDate = (d) => d.toISOString().split('T')[0];
+//   const from = formatDate(yesterday);
+//   const to = formatDate(today);
+
+//   let url = "";
+
+//   if (Api === "true") {
+//     url = `/api/news?type=everything&query=${searchText}&from=${from}&to=${to}`;
+//   } else if (Api === "false") {
+//     url = `/api/news?type=top-headlines&query=${searchText}`;
+//   }
+
+//   try {
+//     const resp = await fetch(url);
+//     const result = await resp.json();
+
+//     console.log(result);
+
+//     if (Array.isArray(result.articles)) {
+//       setData(result.articles);
+//     } else {
+//       setData([]);
+//     }
+//   } catch (err) {
+//     console.error("Error fetching news:", err);
+//     setData([]);
+//   }
+// };
+
